@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ${APPLICATION_NAME:java8-spring-boot-seed,base-bff,base-error,base-api}
+    name: ${APPLICATION_NAME:liquibase-example,base-api}
   sleuth:
     baggage:
       remote-fields:
@@ -10,14 +10,6 @@ spring:
       correlation-fields:
         - channelId
         - enterpriseId
-
-keycloak:
-  cors: true
-  bearer-only: true
-  enabled: true
-  disable-trust-manager: true
-  public-client: true
-  principal-attribute: preferred_username
 
 springdoc:
   swagger-ui:
@@ -33,16 +25,11 @@ spring:
     activate:
       on-profile: default
     import: "configserver:"
-  cloud:
-    config:
-      uri: ${SPRING_CLOUD_CONFIG_URL}
-      label: ${SPRING_CLOUD_CONFIG_LABEL}
-      profile: ${SPRING_CLOUD_CONFIG_PROFILE}
-
-keycloak:
-  auth-server-url: ${access-management.auth.server.url}
-  realm: ${access-management.users.realm}
-  resource: mercury
+  #cloud:
+    #config:
+      #uri: ${SPRING_CLOUD_CONFIG_URL}
+      #label: ${SPRING_CLOUD_CONFIG_LABEL}
+      #profile: ${SPRING_CLOUD_CONFIG_PROFILE}
 
 rest:
   client:
@@ -59,12 +46,12 @@ async:
 seed:
   prefix: "BFF|API|ACL-SEE:"
   channel-id: ${mercury.channel.id}
-  auth-role-interceptor-enabled: true
-  security-headers:
-    allowed-origin:
-    allowed-methods: POST,GET,PUT,PATCH,DELETE,OPTIONS
-    allowed-headers: "Accept,Access-Control-Allowed-Origin,Access-Control-Allowed-Methods,\
-      Access-Control-Allowed-Headers,Authorization,Content-Type,clientenv,clientname,clientver,enterpriseid"
+  #auth-role-interceptor-enabled: true
+  #security-headers:
+    #allowed-origin:
+    #allowed-methods: POST,GET,PUT,PATCH,DELETE,OPTIONS
+    #allowed-headers: "Accept,Access-Control-Allowed-Origin,Access-Control-Allowed-Methods,\
+      #Access-Control-Allowed-Headers,Authorization,Content-Type,clientenv,clientname,clientver,enterpriseid"
   character-repository:
     url: ${seed.character-repository.url}
   user-repository:
@@ -82,11 +69,6 @@ management:
       exposure:
         include: health,refresh
 
-keycloak:
-  auth-server-url: https://sso-rhsso-inte.apps.ocp-np.sis.ad.bia.itau/auth/
-  realm: HomeBankingEmpresas
-  resource: mercury
-
 rest:
   client:
     connect-timeout: 5000
@@ -100,13 +82,8 @@ async:
     queue-capacity: 100
 
 seed:
-  prefix: "BFF|API|ACL-SEE:"
+  prefix: "API-LIQ:"
   channel-id: I
-  auth-role-interceptor-enabled: false
-  security-headers:
-    allowed-origin:
-    allowed-methods:
-    allowed-headers:
   character-repository:
     url: https://swapi.dev/api/people/{id}/
   user-repository:

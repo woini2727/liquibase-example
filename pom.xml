@@ -11,8 +11,8 @@
     <groupId>ar.com.itau</groupId>
     <artifactId>java8-spring-boot-seed</artifactId>
     <version>0.0.1</version>
-    <name>java8-spring-boot-seed</name>
-    <description>Seed project for Spring Boot</description>
+    <name>liquibase-example</name>
+    <description>Liquibase Example</description>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
@@ -37,14 +37,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -95,13 +87,6 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.keycloak.bom</groupId>
-                <artifactId>keycloak-adapter-bom</artifactId>
-                <version>22.0.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

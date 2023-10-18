@@ -18,9 +18,9 @@ public class Config {
     private String prefix;
     @NotBlank
     private String channelId;
-    @NotNull
+    /*@NotNull
     private Boolean authRoleInterceptorEnabled;
-    private SecurityHeaders securityHeaders;
+    private SecurityHeaders securityHeaders;*/
     private SWCharacterRepositoryConfig characterRepository;
     private UserApiRepository userRepository;
 
