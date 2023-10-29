@@ -11,6 +11,21 @@ spring:
         - channelId
         - enterpriseId
 
+  datasource:
+    username: "postgres"
+    password: "admin"
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    driver-class-name: "org.postgresql.Driver"
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect:
+        generate_statistics: false
+    open-in-view: false
 springdoc:
   swagger-ui:
     path: /
@@ -18,7 +33,7 @@ springdoc:
 server:
   port: ${PORT}
   servlet:
-    context-path: /bff-or-api-or-acl/${VERSION}/seed
+    context-path: api/${VERSION}/liquibase-example
 
 spring:
   config:
