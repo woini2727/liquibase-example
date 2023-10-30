@@ -16,9 +16,6 @@ spring:
     password: admin
     url: jdbc:postgresql://localhost:5432/postgres
     driver-class-name: org.postgresql.Driver
-  liquibase:
-    change-log: src/main/resources/db/changelog/1.0.0/changelog.sql
-    enabled: true
   jpa:
     hibernate:
       ddl-auto: none
@@ -36,11 +33,6 @@ spring:
     activate:
       on-profile: default
     import: "configserver:"
-  #cloud:
-    #config:
-      #uri: ${SPRING_CLOUD_CONFIG_URL}
-      #label: ${SPRING_CLOUD_CONFIG_LABEL}
-      #profile: ${SPRING_CLOUD_CONFIG_PROFILE}
 
 rest:
   client:
@@ -57,12 +49,6 @@ async:
 seed:
   prefix: "BFF|API|ACL-SEE:"
   channel-id: ${mercury.channel.id}
-  #auth-role-interceptor-enabled: true
-  #security-headers:
-    #allowed-origin:
-    #allowed-methods: POST,GET,PUT,PATCH,DELETE,OPTIONS
-    #allowed-headers: "Accept,Access-Control-Allowed-Origin,Access-Control-Allowed-Methods,\
-      #Access-Control-Allowed-Headers,Authorization,Content-Type,clientenv,clientname,clientver,enterpriseid"
   character-repository:
     url: ${seed.character-repository.url}
   user-repository:
@@ -78,9 +64,6 @@ spring:
     password: admin
     url: jdbc:postgresql://localhost:5432/postgres
     driver-class-name: org.postgresql.Driver
-  liquibase:
-    change-log: src/main/resources/db/changelog/1.0.0/changelog.sql
-    enabled: true
   jpa:
     show-sql: true
     properties:

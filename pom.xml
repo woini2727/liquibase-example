@@ -10,7 +10,7 @@
     </parent>
     <groupId>ar.com.itau</groupId>
     <artifactId>java8-spring-boot-seed</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>liquibase-example</name>
     <description>Liquibase Example</description>
     <properties>
@@ -209,17 +209,20 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.2.0</version>
+                <version>4.4.0</version>
                 <configuration>
                     <propertyFile>
                         src/main/resources/liquibase.properties
                     </propertyFile>
+                    <changeLogDirectory>
+                        src/main/resources/db/changelog
+                    </changeLogDirectory>
                     <changeLogFile>
-                        src/main/resources/db/changelog/1.0.0/changelog.sql
+                        src/main/resources/db/changelog/db.changelog-master.xml
                     </changeLogFile>
-                    <changeLogFile>
-                        src/main/resources/db/changelog/1.0.0/changelog_2.sql
-                    </changeLogFile>
+                    <tag>
+                        ${project.version}
+                    </tag>
                 </configuration>
             </plugin>
         </plugins>

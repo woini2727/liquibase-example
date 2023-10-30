@@ -1,7 +1,8 @@
 --liquibase formatted sql
 
---changeset salvador:004-crear-tabla
---preconditions onFail:MARK_RAN onError:MARK_RAN
+-- changeset salvador:001-crear-tabla
+-- preconditions onFail:MARK_RAN onError:MARK_RAN
+-- precondition-sql-check expectedResult:0 select count(*) from pg_tables where tablename = 'character';
 CREATE TABLE public.CHARACTER
 (
     ID SERIAL NOT NULL PRIMARY KEY,
@@ -13,5 +14,4 @@ CREATE TABLE public.CHARACTER
     BIRTH_YEAR VARCHAR(10) NOT NULL,
     GENDER VARCHAR(10) NOT NULL
 );
-
-
+-- rollback drop table public.character cascade;
