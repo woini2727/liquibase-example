@@ -2,7 +2,6 @@ package ar.com.itau.seed.adapter.db.model;
 
 import ar.com.itau.seed.domain.SWCharacter;
 import lombok.Data;
-import lombok.NonNull;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,6 +26,7 @@ public class CharacterDBModel {
         model.setName(domain.getName());
         model.setBirthYear(domain.getBirthYear());
         model.setMass(domain.getMass());
+        model.setHairColor(domain.getHairColor());
         model.setCreatedAt(currentTimestamp);
         model.setUpdatedAt(currentTimestamp);
         return model;
@@ -35,7 +35,7 @@ public class CharacterDBModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", updatable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "NAME", nullable = false, updatable = false)
     String name;

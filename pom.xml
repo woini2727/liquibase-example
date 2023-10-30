@@ -31,6 +31,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-jdbc</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
@@ -88,7 +96,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>3.1.5</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -207,6 +214,12 @@
                     <propertyFile>
                         src/main/resources/liquibase.properties
                     </propertyFile>
+                    <changeLogFile>
+                        src/main/resources/db/changelog/1.0.0/changelog.sql
+                    </changeLogFile>
+                    <changeLogFile>
+                        src/main/resources/db/changelog/1.0.0/changelog_2.sql
+                    </changeLogFile>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,5 +1,6 @@
 package ar.com.itau.seed.adapter.controller.model;
 
+import ar.com.itau.seed.domain.SWCharacter;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
@@ -19,4 +20,18 @@ public class SWCharacterRequestBody {
     @NonNull String gender;
     @NonNull LocalDateTime createdAt;
     @NonNull LocalDateTime updatedAt;
+
+    public SWCharacter toDomain(){
+        return SWCharacter.builder()
+                .name(name)
+                .height(height)
+                .mass(mass)
+                .hairColor(hairColor)
+                .eyeColor(eyeColor)
+                .birthYear(birthYear)
+                .gender(gender)
+                .createdAt(createdAt)
+                .updatedAt(updatedAt)
+                .build();
+    }
 }

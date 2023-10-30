@@ -12,20 +12,16 @@ spring:
         - enterpriseId
 
   datasource:
-    username: "postgres"
-    password: "admin"
-    url: "jdbc:postgresql://localhost:5432/postgres"
-    driver-class-name: "org.postgresql.Driver"
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: src/main/resources/db/changelog/1.0.0/changelog.sql
+    enabled: true
   jpa:
     hibernate:
       ddl-auto: none
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    properties:
-      hibernate:
-        dialect:
-        generate_statistics: false
-    open-in-view: false
 springdoc:
   swagger-ui:
     path: /
@@ -77,6 +73,19 @@ spring:
     activate:
       on-profile: local
     import: optional:configserver:http://localhost:8888
+  datasource:
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: src/main/resources/db/changelog/1.0.0/changelog.sql
+    enabled: true
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+      default_schema: public
 
 management:
   endpoints:
