@@ -10,7 +10,7 @@
     </parent>
     <groupId>ar.com.itau</groupId>
     <artifactId>java8-spring-boot-seed</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
     <name>liquibase-example</name>
     <description>Liquibase Example</description>
     <properties>
